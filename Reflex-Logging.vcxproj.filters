@@ -18,6 +18,9 @@
     <ClInclude Include="Reflex-Logging.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ILogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reflex-Logging.cpp">

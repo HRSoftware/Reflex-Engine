@@ -81,6 +81,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>.\Output\$(PlatformTarget)\</OutDir>
+    <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -145,10 +146,12 @@
       <AdditionalLibraryDirectories>E:\Programming\Libraries\C++\release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y Reflex-Logging.h D:\Documents\Programming\Projects\Reflex-Engine_DLLs\OutputCollection 
-
-xcopy /y $(OutDir)Reflex-Logging.lib D:\Documents\Programming\Projects\Reflex-Engine_DLLs\OutputCollection\$(Configuration)</Command>
+      <Command>
+xcopy /y $(OutDir)$(TargetName).lib D:\Documents\Programming\Projects\Reflex-Engine_DLLs\OutputCollection\$(Configuration)</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy /y Reflex-Logging.h D:\Documents\Programming\Projects\Reflex-Engine_DLLs\OutputCollection</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -178,6 +181,7 @@ xcopy /y $(OutDir)Reflex-Logging.lib D:\Documents\Programming\Projects\Reflex-En
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ILogger.h" />
     <ClInclude Include="Reflex-Logging.h" />
   </ItemGroup>
   <ItemGroup>
